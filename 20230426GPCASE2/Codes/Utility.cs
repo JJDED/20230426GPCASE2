@@ -8,6 +8,13 @@ namespace _20230426GPCASE2.Codes;
 
 internal class Utility
 {
+    public enum Criteria
+    {
+        Teacher = 0,
+        Student = 1,
+        Course = 2
+    }
+
     public class Person
     {
         public string FirstName { get; set; }
