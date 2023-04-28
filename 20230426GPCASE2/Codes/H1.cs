@@ -55,7 +55,6 @@ internal class H1
             new Subjects() { Subject = "Computerteknologi"},
             new Subjects() { Subject = "Clientside Programmering"},
             new Subjects() { Subject = "Netværk"}
-
         };
     }
 }
