@@ -1,6 +1,7 @@
 ﻿using _20230426GPCASE2;
 using _20230426GPCASE2.Data;
 using _20230426GPCASE2.Model;
+using System.Linq;
 
 public class Program
 {
@@ -9,8 +10,8 @@ public class Program
     {   
         var subjectData = tecData.PopulateSubject(TecData.Subjects, TecData.Teachers, TecData.Students);        
         Console.WriteLine("Hej velkommen til TEC HF1!");
-        while ()
-        {
+        //while ()
+        //{
             Console.WriteLine("Hvad vil du søge på?");
             Console.WriteLine("Lærer, Elev eller Fag: ");
             var answer = Console.ReadLine()?.ToLower();
@@ -36,12 +37,12 @@ public class Program
                 case "elev":
                     Console.WriteLine("Skriv elevens fulde navn: ");
                     var studentName = Console.ReadLine()?.ToLower();
-                    var studentSubject = string.Join(subjectData.Where(x => x.Students.FullName.ToLower().Equals(studentName)).ToList());
-                    Console.WriteLine($"Elevens navn: \n{studentSubject.Select(x => x.Students.FullName).First()})\n");
+                    var studentSubject = subjectData.Where(x => x.Students.First().Equals(studentName)).ToList();
+                    Console.WriteLine($"Elevens navn: \n{studentSubject.Select(x => x.Students).First()}");
                     foreach (var subject in studentSubject)
                     {
                         Console.WriteLine($"Har disse fag: \n{subject.SubjectName}\n");
-                        Console.WriteLine($"Underviser i {subject.SubjectName}: \n{string.Join("\n" subject.Teacher.Select(x => x.FullName))}\n");
+                        Console.WriteLine($"Underviser i {subject.SubjectName}: \n {subject.Teacher}");
                     }                                        
                     break;
                 case "fag":
@@ -55,7 +56,7 @@ public class Program
                     }                    
                     break;
             }
-        }
+        //}
         
         
     }
