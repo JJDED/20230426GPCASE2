@@ -2,8 +2,8 @@
 
 using static _20230426GPCASE2.Codes.Utility;
 
-Criteria? Search()
-{
+SearchCriteria? Search()
+{ 
     Console.WriteLine("Hej velkommen til TEC HF1!");
     Console.WriteLine("Hvad kunne du tænke dig at søge på?");
     Console.WriteLine("Lærer, Elev eller Fag: ");
@@ -12,16 +12,27 @@ Criteria? Search()
     if (string.IsNullOrEmpty(answer) || !answer.Equals("lærer") && !answer.Equals("elev") && !answer.Equals("fag"))
     {
         Console.Clear();
-        Console.WriteLine($"!! Error, {answer} does not exist. Rebooting program.");
+        Console.WriteLine($"Inputtet var forkert, {answer} eksistere ikke. Genstarter programmet.");
 
         switch (answer)
         {
             case "lærer":
-                return Criteria.Teacher;
+                return SearchCriteria.Teacher;
             case "elev":
-                return Criteria.Student;
+                return SearchCriteria.Student;
             case "fag":
-                return Criteria.Subject;
+                return SearchCriteria.Subject;
         }
+        return null;
+
+
+        //Console.WriteLine("Skriv lærerens fulde navn: ");
+        //return Console.ReadLine()?.ToLower();
+
+        //Console.WriteLine("Skriv elevens fulde navn: ");
+        //return Console.ReadLine()?.ToLower();
+
+        //Console.WriteLine("Skriv fagets fulde navn: ");
+        //return Console.ReadLine()?.ToLower();
     }
 }
